@@ -13,7 +13,7 @@ var Integrations = require('./integrations');
  * Expose the `analytics` singleton.
  */
 
-module.exports = exports = analytics;
+module.exports.infoowlAnalytics = exports.infoowlAnalytics = analytics;
 
 /**
  * Expose require.
@@ -35,7 +35,7 @@ Object.keys(Integrations).forEach(function(name) {
   analytics.use(Integrations[name]);
 });
 
-},{"../package.json":104,"./integrations":2,"@segment/analytics.js-core":23}],2:[function(require,module,exports){
+},{"../package.json":106,"./integrations":2,"@segment/analytics.js-core":23}],2:[function(require,module,exports){
 /* eslint quote-props: 0 */
 'use strict';
 
@@ -351,7 +351,7 @@ Infoowl.prototype.referrerId = function (query, ctx) {
 function noop() {
 }
 
-},{"@ndhoule/extend":11,"@ndhoule/keys":14,"@segment/ad-params":18,"@segment/analytics.js-integration":31,"@segment/protocol":42,"@segment/send-json":43,"@segment/top-domain":45,"@segment/utm-params":46,"component-clone":50,"component-cookie":51,"json3":68,"spark-md5":91,"uuid":97,"yields-store":102}],4:[function(require,module,exports){
+},{"@ndhoule/extend":11,"@ndhoule/keys":14,"@segment/ad-params":18,"@segment/analytics.js-integration":33,"@segment/protocol":44,"@segment/send-json":45,"@segment/top-domain":47,"@segment/utm-params":48,"component-clone":52,"component-cookie":53,"json3":70,"spark-md5":93,"uuid":99,"yields-store":104}],4:[function(require,module,exports){
 'use strict';
 
 /*
@@ -643,7 +643,7 @@ var clone = function clone(obj) {
 
 module.exports = clone;
 
-},{"component-type":59}],7:[function(require,module,exports){
+},{"component-type":61}],7:[function(require,module,exports){
 'use strict';
 
 /*
@@ -1579,7 +1579,7 @@ function ads(query) {
 
 module.exports = ads;
 
-},{"component-querystring":57}],19:[function(require,module,exports){
+},{"component-querystring":59}],19:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -2278,7 +2278,7 @@ module.exports.memory = memory;
 module.exports.store = store;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./cookie":20,"./group":22,"./memory":24,"./normalize":25,"./pageDefaults":26,"./store":27,"./user":28,"@ndhoule/after":4,"@ndhoule/clone":6,"@ndhoule/defaults":7,"@ndhoule/each":9,"@ndhoule/foldl":12,"@ndhoule/keys":14,"@ndhoule/pick":16,"@segment/is-meta":37,"@segment/prevent-default":41,"bind-all":48,"component-emitter":54,"component-event":55,"component-querystring":57,"component-type":59,"debug":29,"is":67,"next-tick":75,"segmentio-facade":84}],20:[function(require,module,exports){
+},{"./cookie":20,"./group":22,"./memory":24,"./normalize":25,"./pageDefaults":26,"./store":27,"./user":28,"@ndhoule/after":4,"@ndhoule/clone":6,"@ndhoule/defaults":7,"@ndhoule/each":9,"@ndhoule/foldl":12,"@ndhoule/keys":14,"@ndhoule/pick":16,"@segment/is-meta":39,"@segment/prevent-default":43,"bind-all":50,"component-emitter":56,"component-event":57,"component-querystring":59,"component-type":61,"debug":29,"is":69,"next-tick":77,"segmentio-facade":86}],20:[function(require,module,exports){
 'use strict';
 
 /**
@@ -2412,7 +2412,7 @@ module.exports = bindAll(new Cookie());
 
 module.exports.Cookie = Cookie;
 
-},{"@ndhoule/clone":6,"@ndhoule/defaults":7,"@segment/top-domain":45,"bind-all":48,"component-cookie":51,"debug":29,"json3":68}],21:[function(require,module,exports){
+},{"@ndhoule/clone":6,"@ndhoule/defaults":7,"@segment/top-domain":47,"bind-all":50,"component-cookie":53,"debug":29,"json3":70}],21:[function(require,module,exports){
 'use strict';
 
 /*
@@ -2655,7 +2655,7 @@ Entity.prototype.load = function() {
 };
 
 
-},{"./cookie":20,"./memory":24,"./store":27,"@ndhoule/clone":6,"@ndhoule/defaults":7,"@ndhoule/extend":11,"@segment/isodate-traverse":38,"debug":29}],22:[function(require,module,exports){
+},{"./cookie":20,"./memory":24,"./store":27,"@ndhoule/clone":6,"@ndhoule/defaults":7,"@ndhoule/extend":11,"@segment/isodate-traverse":40,"debug":29}],22:[function(require,module,exports){
 'use strict';
 
 /*
@@ -2715,7 +2715,7 @@ module.exports = bindAll(new Group());
 
 module.exports.Group = Group;
 
-},{"./entity":21,"bind-all":48,"debug":29,"inherits":65}],23:[function(require,module,exports){
+},{"./entity":21,"bind-all":50,"debug":29,"inherits":67}],23:[function(require,module,exports){
 'use strict';
 
 /**
@@ -2742,7 +2742,7 @@ analytics.VERSION = require('../package.json').version;
 
 module.exports = analytics;
 
-},{"../package.json":30,"./analytics":19}],24:[function(require,module,exports){
+},{"../package.json":32,"./analytics":19}],24:[function(require,module,exports){
 'use strict';
 
 /*
@@ -2808,7 +2808,7 @@ Memory.prototype.remove = function(key) {
   return true;
 };
 
-},{"@ndhoule/clone":6,"bind-all":48}],25:[function(require,module,exports){
+},{"@ndhoule/clone":6,"bind-all":50}],25:[function(require,module,exports){
 'use strict';
 
 /**
@@ -2901,7 +2901,7 @@ function normalize(msg, list) {
   }
 }
 
-},{"@ndhoule/defaults":7,"@ndhoule/each":9,"@ndhoule/includes":13,"@ndhoule/map":15,"component-type":59,"debug":29}],26:[function(require,module,exports){
+},{"@ndhoule/defaults":7,"@ndhoule/each":9,"@ndhoule/includes":13,"@ndhoule/map":15,"component-type":61,"debug":29}],26:[function(require,module,exports){
 'use strict';
 
 /*
@@ -2965,7 +2965,7 @@ function canonicalUrl(search) {
 
 module.exports = pageDefaults;
 
-},{"@ndhoule/includes":13,"@segment/canonical":35,"component-url":60}],27:[function(require,module,exports){
+},{"@ndhoule/includes":13,"@segment/canonical":37,"component-url":62}],27:[function(require,module,exports){
 'use strict';
 
 /*
@@ -3055,7 +3055,7 @@ module.exports = bindAll(new Store());
 
 module.exports.Store = Store;
 
-},{"@ndhoule/defaults":7,"@segment/store":44,"bind-all":48}],28:[function(require,module,exports){
+},{"@ndhoule/defaults":7,"@segment/store":46,"bind-all":50}],28:[function(require,module,exports){
 'use strict';
 
 /*
@@ -3233,7 +3233,7 @@ module.exports = bindAll(new User());
 
 module.exports.User = User;
 
-},{"./cookie":20,"./entity":21,"bind-all":48,"component-cookie":51,"debug":29,"inherits":65,"uuid":97}],29:[function(require,module,exports){
+},{"./cookie":20,"./entity":21,"bind-all":50,"component-cookie":53,"debug":29,"inherits":67,"uuid":31}],29:[function(require,module,exports){
 
 /**
  * Expose `debug()` as the module.
@@ -3373,6 +3373,227 @@ try {
 } catch(e){}
 
 },{}],30:[function(require,module,exports){
+(function (global){
+
+var rng;
+
+var crypto = global.crypto || global.msCrypto; // for IE 11
+if (crypto && crypto.getRandomValues) {
+  // WHATWG crypto-based RNG - http://wiki.whatwg.org/wiki/Crypto
+  // Moderately fast, high quality
+  var _rnds8 = new Uint8Array(16);
+  rng = function whatwgRNG() {
+    crypto.getRandomValues(_rnds8);
+    return _rnds8;
+  };
+}
+
+if (!rng) {
+  // Math.random()-based (RNG)
+  //
+  // If all else fails, use Math.random().  It's fast, but is of unspecified
+  // quality.
+  var  _rnds = new Array(16);
+  rng = function() {
+    for (var i = 0, r; i < 16; i++) {
+      if ((i & 0x03) === 0) r = Math.random() * 0x100000000;
+      _rnds[i] = r >>> ((i & 0x03) << 3) & 0xff;
+    }
+
+    return _rnds;
+  };
+}
+
+module.exports = rng;
+
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{}],31:[function(require,module,exports){
+//     uuid.js
+//
+//     Copyright (c) 2010-2012 Robert Kieffer
+//     MIT License - http://opensource.org/licenses/mit-license.php
+
+// Unique ID creation requires a high quality random # generator.  We feature
+// detect to determine the best RNG source, normalizing to a function that
+// returns 128-bits of randomness, since that's what's usually required
+var _rng = require('./rng');
+
+// Maps for number <-> hex string conversion
+var _byteToHex = [];
+var _hexToByte = {};
+for (var i = 0; i < 256; i++) {
+  _byteToHex[i] = (i + 0x100).toString(16).substr(1);
+  _hexToByte[_byteToHex[i]] = i;
+}
+
+// **`parse()` - Parse a UUID into it's component bytes**
+function parse(s, buf, offset) {
+  var i = (buf && offset) || 0, ii = 0;
+
+  buf = buf || [];
+  s.toLowerCase().replace(/[0-9a-f]{2}/g, function(oct) {
+    if (ii < 16) { // Don't overflow!
+      buf[i + ii++] = _hexToByte[oct];
+    }
+  });
+
+  // Zero out remaining bytes if string was short
+  while (ii < 16) {
+    buf[i + ii++] = 0;
+  }
+
+  return buf;
+}
+
+// **`unparse()` - Convert UUID byte array (ala parse()) into a string**
+function unparse(buf, offset) {
+  var i = offset || 0, bth = _byteToHex;
+  return  bth[buf[i++]] + bth[buf[i++]] +
+          bth[buf[i++]] + bth[buf[i++]] + '-' +
+          bth[buf[i++]] + bth[buf[i++]] + '-' +
+          bth[buf[i++]] + bth[buf[i++]] + '-' +
+          bth[buf[i++]] + bth[buf[i++]] + '-' +
+          bth[buf[i++]] + bth[buf[i++]] +
+          bth[buf[i++]] + bth[buf[i++]] +
+          bth[buf[i++]] + bth[buf[i++]];
+}
+
+// **`v1()` - Generate time-based UUID**
+//
+// Inspired by https://github.com/LiosK/UUID.js
+// and http://docs.python.org/library/uuid.html
+
+// random #'s we need to init node and clockseq
+var _seedBytes = _rng();
+
+// Per 4.5, create and 48-bit node id, (47 random bits + multicast bit = 1)
+var _nodeId = [
+  _seedBytes[0] | 0x01,
+  _seedBytes[1], _seedBytes[2], _seedBytes[3], _seedBytes[4], _seedBytes[5]
+];
+
+// Per 4.2.2, randomize (14 bit) clockseq
+var _clockseq = (_seedBytes[6] << 8 | _seedBytes[7]) & 0x3fff;
+
+// Previous uuid creation time
+var _lastMSecs = 0, _lastNSecs = 0;
+
+// See https://github.com/broofa/node-uuid for API details
+function v1(options, buf, offset) {
+  var i = buf && offset || 0;
+  var b = buf || [];
+
+  options = options || {};
+
+  var clockseq = options.clockseq !== undefined ? options.clockseq : _clockseq;
+
+  // UUID timestamps are 100 nano-second units since the Gregorian epoch,
+  // (1582-10-15 00:00).  JSNumbers aren't precise enough for this, so
+  // time is handled internally as 'msecs' (integer milliseconds) and 'nsecs'
+  // (100-nanoseconds offset from msecs) since unix epoch, 1970-01-01 00:00.
+  var msecs = options.msecs !== undefined ? options.msecs : new Date().getTime();
+
+  // Per 4.2.1.2, use count of uuid's generated during the current clock
+  // cycle to simulate higher resolution clock
+  var nsecs = options.nsecs !== undefined ? options.nsecs : _lastNSecs + 1;
+
+  // Time since last uuid creation (in msecs)
+  var dt = (msecs - _lastMSecs) + (nsecs - _lastNSecs)/10000;
+
+  // Per 4.2.1.2, Bump clockseq on clock regression
+  if (dt < 0 && options.clockseq === undefined) {
+    clockseq = clockseq + 1 & 0x3fff;
+  }
+
+  // Reset nsecs if clock regresses (new clockseq) or we've moved onto a new
+  // time interval
+  if ((dt < 0 || msecs > _lastMSecs) && options.nsecs === undefined) {
+    nsecs = 0;
+  }
+
+  // Per 4.2.1.2 Throw error if too many uuids are requested
+  if (nsecs >= 10000) {
+    throw new Error('uuid.v1(): Can\'t create more than 10M uuids/sec');
+  }
+
+  _lastMSecs = msecs;
+  _lastNSecs = nsecs;
+  _clockseq = clockseq;
+
+  // Per 4.1.4 - Convert from unix epoch to Gregorian epoch
+  msecs += 12219292800000;
+
+  // `time_low`
+  var tl = ((msecs & 0xfffffff) * 10000 + nsecs) % 0x100000000;
+  b[i++] = tl >>> 24 & 0xff;
+  b[i++] = tl >>> 16 & 0xff;
+  b[i++] = tl >>> 8 & 0xff;
+  b[i++] = tl & 0xff;
+
+  // `time_mid`
+  var tmh = (msecs / 0x100000000 * 10000) & 0xfffffff;
+  b[i++] = tmh >>> 8 & 0xff;
+  b[i++] = tmh & 0xff;
+
+  // `time_high_and_version`
+  b[i++] = tmh >>> 24 & 0xf | 0x10; // include version
+  b[i++] = tmh >>> 16 & 0xff;
+
+  // `clock_seq_hi_and_reserved` (Per 4.2.2 - include variant)
+  b[i++] = clockseq >>> 8 | 0x80;
+
+  // `clock_seq_low`
+  b[i++] = clockseq & 0xff;
+
+  // `node`
+  var node = options.node || _nodeId;
+  for (var n = 0; n < 6; n++) {
+    b[i + n] = node[n];
+  }
+
+  return buf ? buf : unparse(b);
+}
+
+// **`v4()` - Generate random UUID**
+
+// See https://github.com/broofa/node-uuid for API details
+function v4(options, buf, offset) {
+  // Deprecated - 'format' argument, as supported in v1.2
+  var i = buf && offset || 0;
+
+  if (typeof(options) == 'string') {
+    buf = options == 'binary' ? new Array(16) : null;
+    options = null;
+  }
+  options = options || {};
+
+  var rnds = options.random || (options.rng || _rng)();
+
+  // Per 4.4, set bits for version and `clock_seq_hi_and_reserved`
+  rnds[6] = (rnds[6] & 0x0f) | 0x40;
+  rnds[8] = (rnds[8] & 0x3f) | 0x80;
+
+  // Copy bytes to buffer, if provided
+  if (buf) {
+    for (var ii = 0; ii < 16; ii++) {
+      buf[i + ii] = rnds[ii];
+    }
+  }
+
+  return buf || unparse(rnds);
+}
+
+// Export public API
+var uuid = v4;
+uuid.v1 = v1;
+uuid.v4 = v4;
+uuid.parse = parse;
+uuid.unparse = unparse;
+
+module.exports = uuid;
+
+},{"./rng":30}],32:[function(require,module,exports){
 module.exports={
   "_args": [
     [
@@ -3523,7 +3744,7 @@ module.exports={
   "version": "3.0.0"
 }
 
-},{}],31:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 'use strict';
 
 /**
@@ -3588,7 +3809,7 @@ function createIntegration(name) {
 
 module.exports = createIntegration;
 
-},{"./protos":32,"./statics":33,"@ndhoule/clone":6,"@ndhoule/defaults":7,"@ndhoule/extend":11,"component-bind":49,"debug":61,"slug-component":90}],32:[function(require,module,exports){
+},{"./protos":34,"./statics":35,"@ndhoule/clone":6,"@ndhoule/defaults":7,"@ndhoule/extend":11,"component-bind":51,"debug":63,"slug-component":92}],34:[function(require,module,exports){
 'use strict';
 
 /**
@@ -4058,7 +4279,7 @@ function render(template, locals) {
   }, {}, template.attrs);
 }
 
-},{"@ndhoule/after":4,"@ndhoule/each":9,"@ndhoule/every":10,"@ndhoule/foldl":12,"@segment/fmt":36,"@segment/load-script":40,"analytics-events":47,"component-emitter":54,"is":67,"load-iframe":70,"next-tick":75,"to-no-case":93}],33:[function(require,module,exports){
+},{"@ndhoule/after":4,"@ndhoule/each":9,"@ndhoule/every":10,"@ndhoule/foldl":12,"@segment/fmt":38,"@segment/load-script":42,"analytics-events":49,"component-emitter":56,"is":69,"load-iframe":72,"next-tick":77,"to-no-case":95}],35:[function(require,module,exports){
 'use strict';
 
 /**
@@ -4223,7 +4444,7 @@ function objectify(str) {
   };
 }
 
-},{"@ndhoule/each":9,"@ndhoule/includes":13,"component-emitter":54,"domify":63}],34:[function(require,module,exports){
+},{"@ndhoule/each":9,"@ndhoule/includes":13,"component-emitter":56,"domify":65}],36:[function(require,module,exports){
 var utf8Encode = require('utf8-encode');
 var keyStr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
 
@@ -4260,7 +4481,7 @@ function encode(input) {
 
     return output;
 }
-},{"utf8-encode":96}],35:[function(require,module,exports){
+},{"utf8-encode":98}],37:[function(require,module,exports){
 'use strict';
 
 /**
@@ -4284,7 +4505,7 @@ function canonical() {
 
 module.exports = canonical;
 
-},{}],36:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -4319,7 +4540,7 @@ fmt.d = parseInt;
 module.exports = fmt;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],37:[function(require,module,exports){
+},{}],39:[function(require,module,exports){
 'use strict';
 
 function isMeta(e) {
@@ -4347,7 +4568,7 @@ function isMeta(e) {
 
 module.exports = isMeta;
 
-},{}],38:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 'use strict';
 
 var type = require('component-type');
@@ -4414,7 +4635,7 @@ function array(arr, strict) {
   return arr;
 }
 
-},{"@segment/isodate":39,"component-each":52,"component-type":59}],39:[function(require,module,exports){
+},{"@segment/isodate":41,"component-each":54,"component-type":61}],41:[function(require,module,exports){
 'use strict';
 
 /**
@@ -4492,7 +4713,7 @@ exports.is = function(string, strict) {
   return matcher.test(string);
 };
 
-},{}],40:[function(require,module,exports){
+},{}],42:[function(require,module,exports){
 'use strict';
 
 /*
@@ -4564,7 +4785,7 @@ function loadScript(options, cb) {
 
 module.exports = loadScript;
 
-},{"component-type":59,"next-tick":75,"script-onload":78}],41:[function(require,module,exports){
+},{"component-type":61,"next-tick":77,"script-onload":80}],43:[function(require,module,exports){
 'use strict';
 
 /**
@@ -4589,7 +4810,7 @@ function preventDefault(e) {
 
 module.exports = preventDefault;
 
-},{}],42:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
 'use strict';
 
 /**
@@ -4674,7 +4895,7 @@ function set(protocol) {
   }
 }
 
-},{}],43:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 'use strict';
 
 /*
@@ -4792,7 +5013,7 @@ function encode(obj) {
   return encodeURIComponent(str);
 }
 
-},{"@segment/base64-encode":34,"has-cors":64,"json3":68,"jsonp":69}],44:[function(require,module,exports){
+},{"@segment/base64-encode":36,"has-cors":66,"json3":70,"jsonp":71}],46:[function(require,module,exports){
 (function (global){
 "use strict";
 
@@ -4965,7 +5186,7 @@ module.exports = (function() {
 }())
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"json3":68}],45:[function(require,module,exports){
+},{"json3":70}],47:[function(require,module,exports){
 'use strict';
 
 /**
@@ -5065,7 +5286,7 @@ domain.cookie = cookie;
 
 exports = module.exports = domain;
 
-},{"component-cookie":51,"component-url":60}],46:[function(require,module,exports){
+},{"component-cookie":53,"component-url":62}],48:[function(require,module,exports){
 'use strict';
 
 /**
@@ -5144,7 +5365,7 @@ function strict(query) {
 module.exports = utm;
 module.exports.strict = strict;
 
-},{"@ndhoule/foldl":12,"component-querystring":57}],47:[function(require,module,exports){
+},{"@ndhoule/foldl":12,"component-querystring":59}],49:[function(require,module,exports){
 'use strict';
 
 /**
@@ -5374,7 +5595,7 @@ module.exports = foldl(function transform(ret, pairs, method) {
   return ret;
 }, {}, eventMap);
 
-},{"@ndhoule/foldl":12,"@ndhoule/map":15}],48:[function(require,module,exports){
+},{"@ndhoule/foldl":12,"@ndhoule/map":15}],50:[function(require,module,exports){
 'use strict';
 
 var bind = require('component-bind');
@@ -5392,7 +5613,7 @@ function bindAll(obj) {
 
 module.exports = bindAll;
 
-},{"component-bind":49}],49:[function(require,module,exports){
+},{"component-bind":51}],51:[function(require,module,exports){
 /**
  * Slice reference.
  */
@@ -5417,7 +5638,7 @@ module.exports = function(obj, fn){
   }
 };
 
-},{}],50:[function(require,module,exports){
+},{}],52:[function(require,module,exports){
 /**
  * Module dependencies.
  */
@@ -5476,7 +5697,7 @@ function clone(obj){
   }
 }
 
-},{"component-type":59,"type":59}],51:[function(require,module,exports){
+},{"component-type":61,"type":61}],53:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -5609,7 +5830,7 @@ function decode(value) {
   }
 }
 
-},{"debug":61}],52:[function(require,module,exports){
+},{"debug":63}],54:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -5700,7 +5921,7 @@ function array(obj, fn, ctx) {
   }
 }
 
-},{"component-type":53,"to-function":92,"type":53}],53:[function(require,module,exports){
+},{"component-type":55,"to-function":94,"type":55}],55:[function(require,module,exports){
 
 /**
  * toString ref.
@@ -5734,7 +5955,7 @@ module.exports = function(val){
   return typeof val;
 };
 
-},{}],54:[function(require,module,exports){
+},{}],56:[function(require,module,exports){
 
 /**
  * Expose `Emitter`.
@@ -5898,7 +6119,7 @@ Emitter.prototype.hasListeners = function(event){
   return !! this.listeners(event).length;
 };
 
-},{}],55:[function(require,module,exports){
+},{}],57:[function(require,module,exports){
 var bind = window.addEventListener ? 'addEventListener' : 'attachEvent',
     unbind = window.removeEventListener ? 'removeEventListener' : 'detachEvent',
     prefix = bind !== 'addEventListener' ? 'on' : '';
@@ -5934,7 +6155,7 @@ exports.unbind = function(el, type, fn, capture){
   el[unbind](prefix + type, fn, capture || false);
   return fn;
 };
-},{}],56:[function(require,module,exports){
+},{}],58:[function(require,module,exports){
 /**
  * Global Names
  */
@@ -6021,7 +6242,7 @@ function prefixed(str) {
   };
 }
 
-},{}],57:[function(require,module,exports){
+},{}],59:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -6128,7 +6349,7 @@ exports.stringify = function(obj){
   return pairs.join('&');
 };
 
-},{"trim":94,"type":58}],58:[function(require,module,exports){
+},{"trim":96,"type":60}],60:[function(require,module,exports){
 /**
  * toString ref.
  */
@@ -6164,7 +6385,7 @@ module.exports = function(val){
   return typeof val;
 };
 
-},{}],59:[function(require,module,exports){
+},{}],61:[function(require,module,exports){
 /**
  * toString ref.
  */
@@ -6212,7 +6433,7 @@ function isBuffer(obj) {
     ))
 }
 
-},{}],60:[function(require,module,exports){
+},{}],62:[function(require,module,exports){
 
 /**
  * Parse the given `url`.
@@ -6296,7 +6517,7 @@ function port (protocol){
   }
 }
 
-},{}],61:[function(require,module,exports){
+},{}],63:[function(require,module,exports){
 (function (process){
 /**
  * This is the web browser implementation of `debug()`.
@@ -6482,7 +6703,7 @@ function localstorage() {
 }
 
 }).call(this,require('_process'))
-},{"./debug":62,"_process":77}],62:[function(require,module,exports){
+},{"./debug":64,"_process":79}],64:[function(require,module,exports){
 
 /**
  * This is the common logic for both the Node.js and web browser
@@ -6683,7 +6904,7 @@ function coerce(val) {
   return val;
 }
 
-},{"ms":71}],63:[function(require,module,exports){
+},{"ms":73}],65:[function(require,module,exports){
 
 /**
  * Expose `parse`.
@@ -6797,7 +7018,7 @@ function parse(html, doc) {
   return fragment;
 }
 
-},{}],64:[function(require,module,exports){
+},{}],66:[function(require,module,exports){
 
 /**
  * Module exports.
@@ -6816,7 +7037,7 @@ try {
   module.exports = false;
 }
 
-},{}],65:[function(require,module,exports){
+},{}],67:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -6841,12 +7062,12 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],66:[function(require,module,exports){
+},{}],68:[function(require,module,exports){
 
 module.exports = function isEmail (string) {
     return (/.+\@.+\..+/).test(string);
 };
-},{}],67:[function(require,module,exports){
+},{}],69:[function(require,module,exports){
 /* globals window, HTMLElement */
 
 'use strict';
@@ -7644,7 +7865,7 @@ is.symbol = function (value) {
 
 module.exports = is;
 
-},{}],68:[function(require,module,exports){
+},{}],70:[function(require,module,exports){
 (function (global){
 /*! JSON v3.3.2 | http://bestiejs.github.io/json3 | Copyright 2012-2014, Kit Cambridge | http://kit.mit-license.org */
     (function () {
@@ -8550,7 +8771,7 @@ module.exports = is;
 }).call(this);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],69:[function(require,module,exports){
+},{}],71:[function(require,module,exports){
 /**
  * Module dependencies
  */
@@ -8649,7 +8870,7 @@ function jsonp(url, opts, fn){
   return cancel;
 }
 
-},{"debug":61}],70:[function(require,module,exports){
+},{"debug":63}],72:[function(require,module,exports){
 /**
  * Module dependencies.
  */
@@ -8711,7 +8932,7 @@ module.exports = function loadIframe(options, fn){
   return iframe;
 };
 
-},{"is":67,"next-tick":75,"script-onload":78}],71:[function(require,module,exports){
+},{"is":69,"next-tick":77,"script-onload":80}],73:[function(require,module,exports){
 /**
  * Helpers.
  */
@@ -8862,7 +9083,7 @@ function plural(ms, n, name) {
   return Math.ceil(ms / n) + ' ' + name + 's'
 }
 
-},{}],72:[function(require,module,exports){
+},{}],74:[function(require,module,exports){
 'use strict';
 
 var is = require('is');
@@ -8907,7 +9128,7 @@ function toMs(num) {
   return num;
 }
 
-},{"./milliseconds":73,"./seconds":74,"@segment/isodate":39,"is":67}],73:[function(require,module,exports){
+},{"./milliseconds":75,"./seconds":76,"@segment/isodate":41,"is":69}],75:[function(require,module,exports){
 'use strict';
 
 /**
@@ -8939,7 +9160,7 @@ exports.parse = function(millis) {
   return new Date(millis);
 };
 
-},{}],74:[function(require,module,exports){
+},{}],76:[function(require,module,exports){
 'use strict';
 
 /**
@@ -8971,7 +9192,7 @@ exports.parse = function(seconds) {
   return new Date(millis);
 };
 
-},{}],75:[function(require,module,exports){
+},{}],77:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -9039,7 +9260,7 @@ module.exports = (function () {
 }());
 
 }).call(this,require('_process'))
-},{"_process":77}],76:[function(require,module,exports){
+},{"_process":79}],78:[function(require,module,exports){
 
 var identity = function(_){ return _; };
 
@@ -9193,7 +9414,7 @@ function isFunction(val) {
   return typeof val === 'function';
 }
 
-},{}],77:[function(require,module,exports){
+},{}],79:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -9230,7 +9451,7 @@ function defaultClearTimeout () {
     } catch (e) {
         cachedClearTimeout = defaultClearTimeout;
     }
-} ());
+} ());;
 function runTimeout(fun) {
     if (cachedSetTimeout === setTimeout) {
         //normal enviroments in sane situations
@@ -9375,7 +9596,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],78:[function(require,module,exports){
+},{}],80:[function(require,module,exports){
 
 // https://github.com/thirdpartyjs/thirdpartyjs-code/blob/master/examples/templates/02/loading-files/index.html
 
@@ -9430,7 +9651,7 @@ function attach(el, fn){
   });
 }
 
-},{}],79:[function(require,module,exports){
+},{}],81:[function(require,module,exports){
 'use strict';
 
 /**
@@ -9469,7 +9690,7 @@ module.exports = function(proto) {
   }
 };
 
-},{"obj-case":76}],80:[function(require,module,exports){
+},{"obj-case":78}],82:[function(require,module,exports){
 'use strict';
 
 /**
@@ -9540,7 +9761,7 @@ Alias.prototype.to = Alias.prototype.userId;
 
 module.exports = Alias;
 
-},{"./facade":81,"./utils":89}],81:[function(require,module,exports){
+},{"./facade":83,"./utils":91}],83:[function(require,module,exports){
 'use strict';
 
 var address = require('./address');
@@ -9854,7 +10075,7 @@ function transform(obj) {
 
 module.exports = Facade;
 
-},{"./address":79,"./is-enabled":85,"./utils":89,"@segment/isodate-traverse":38,"new-date":72,"obj-case":76}],82:[function(require,module,exports){
+},{"./address":81,"./is-enabled":87,"./utils":91,"@segment/isodate-traverse":40,"new-date":74,"obj-case":78}],84:[function(require,module,exports){
 'use strict';
 
 /**
@@ -9975,7 +10196,7 @@ Group.prototype.properties = function() {
 
 module.exports = Group;
 
-},{"./facade":81,"./utils":89,"is-email":66,"new-date":72}],83:[function(require,module,exports){
+},{"./facade":83,"./utils":91,"is-email":68,"new-date":74}],85:[function(require,module,exports){
 'use strict';
 
 var Facade = require('./facade');
@@ -10220,7 +10441,7 @@ Identify.prototype.birthday = Facade.proxy('traits.birthday');
 
 module.exports = Identify;
 
-},{"./facade":81,"./utils":89,"is-email":66,"new-date":72,"obj-case":76,"trim":94}],84:[function(require,module,exports){
+},{"./facade":83,"./utils":91,"is-email":68,"new-date":74,"obj-case":78,"trim":96}],86:[function(require,module,exports){
 'use strict';
 
 var Facade = require('./facade');
@@ -10242,7 +10463,7 @@ Facade.Screen = require('./screen');
 
 module.exports = Facade;
 
-},{"./alias":80,"./facade":81,"./group":82,"./identify":83,"./page":86,"./screen":87,"./track":88}],85:[function(require,module,exports){
+},{"./alias":82,"./facade":83,"./group":84,"./identify":85,"./page":88,"./screen":89,"./track":90}],87:[function(require,module,exports){
 'use strict';
 
 /**
@@ -10265,7 +10486,7 @@ module.exports = function(integration) {
   return !disabled[integration];
 };
 
-},{}],86:[function(require,module,exports){
+},{}],88:[function(require,module,exports){
 'use strict';
 
 var inherit = require('./utils').inherit;
@@ -10414,7 +10635,7 @@ Page.prototype.track = function(name) {
 
 module.exports = Page;
 
-},{"./facade":81,"./track":88,"./utils":89,"is-email":66}],87:[function(require,module,exports){
+},{"./facade":83,"./track":90,"./utils":91,"is-email":68}],89:[function(require,module,exports){
 'use strict';
 
 var inherit = require('./utils').inherit;
@@ -10486,7 +10707,7 @@ Screen.prototype.track = function(name) {
 
 module.exports = Screen;
 
-},{"./page":86,"./track":88,"./utils":89}],88:[function(require,module,exports){
+},{"./page":88,"./track":90,"./utils":91}],90:[function(require,module,exports){
 'use strict';
 
 var inherit = require('./utils').inherit;
@@ -10811,14 +11032,14 @@ function currency(val) {
 
 module.exports = Track;
 
-},{"./facade":81,"./identify":83,"./utils":89,"is-email":66,"obj-case":76}],89:[function(require,module,exports){
+},{"./facade":83,"./identify":85,"./utils":91,"is-email":68,"obj-case":78}],91:[function(require,module,exports){
 'use strict';
 
 exports.inherit = require('inherits');
 exports.clone = require('@ndhoule/clone');
 exports.type = require('type-component');
 
-},{"@ndhoule/clone":6,"inherits":65,"type-component":95}],90:[function(require,module,exports){
+},{"@ndhoule/clone":6,"inherits":67,"type-component":97}],92:[function(require,module,exports){
 
 /**
  * Generate a slug from the given `str`.
@@ -10843,7 +11064,7 @@ module.exports = function (str, options) {
     .replace(/ +/g, options.separator || '-')
 };
 
-},{}],91:[function(require,module,exports){
+},{}],93:[function(require,module,exports){
 (function (factory) {
     if (typeof exports === 'object') {
         // Node/CommonJS
@@ -11596,7 +11817,7 @@ module.exports = function (str, options) {
     return SparkMD5;
 }));
 
-},{}],92:[function(require,module,exports){
+},{}],94:[function(require,module,exports){
 
 /**
  * Module Dependencies
@@ -11750,7 +11971,7 @@ function stripNested (prop, str, val) {
   });
 }
 
-},{"component-props":56,"props":56}],93:[function(require,module,exports){
+},{"component-props":58,"props":58}],95:[function(require,module,exports){
 
 /**
  * Expose `toNoCase`.
@@ -11822,7 +12043,7 @@ function uncamelize (string) {
     return previous + ' ' + uppers.toLowerCase().split('').join(' ');
   });
 }
-},{}],94:[function(require,module,exports){
+},{}],96:[function(require,module,exports){
 
 exports = module.exports = trim;
 
@@ -11838,7 +12059,7 @@ exports.right = function(str){
   return str.replace(/\s*$/, '');
 };
 
-},{}],95:[function(require,module,exports){
+},{}],97:[function(require,module,exports){
 
 /**
  * toString ref.
@@ -11870,7 +12091,7 @@ module.exports = function(val){
   return typeof val;
 };
 
-},{}],96:[function(require,module,exports){
+},{}],98:[function(require,module,exports){
 module.exports = encode;
 
 function encode(string) {
@@ -11898,7 +12119,7 @@ function encode(string) {
 
     return utftext;
 }
-},{}],97:[function(require,module,exports){
+},{}],99:[function(require,module,exports){
 var v1 = require('./v1');
 var v4 = require('./v4');
 
@@ -11908,7 +12129,7 @@ uuid.v4 = v4;
 
 module.exports = uuid;
 
-},{"./v1":100,"./v4":101}],98:[function(require,module,exports){
+},{"./v1":102,"./v4":103}],100:[function(require,module,exports){
 /**
  * Convert array of 16 byte values to UUID string format of the form:
  * XXXXXXXX-XXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
@@ -11933,7 +12154,7 @@ function bytesToUuid(buf, offset) {
 
 module.exports = bytesToUuid;
 
-},{}],99:[function(require,module,exports){
+},{}],101:[function(require,module,exports){
 (function (global){
 // Unique ID creation requires a high quality random # generator.  In the
 // browser this is a little complicated due to unknown quality of Math.random()
@@ -11970,7 +12191,7 @@ if (!rng) {
 module.exports = rng;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],100:[function(require,module,exports){
+},{}],102:[function(require,module,exports){
 // Unique ID creation requires a high quality random # generator.  We feature
 // detect to determine the best RNG source, normalizing to a function that
 // returns 128-bits of randomness, since that's what's usually required
@@ -12075,7 +12296,7 @@ function v1(options, buf, offset) {
 
 module.exports = v1;
 
-},{"./lib/bytesToUuid":98,"./lib/rng":99}],101:[function(require,module,exports){
+},{"./lib/bytesToUuid":100,"./lib/rng":101}],103:[function(require,module,exports){
 var rng = require('./lib/rng');
 var bytesToUuid = require('./lib/bytesToUuid');
 
@@ -12106,7 +12327,7 @@ function v4(options, buf, offset) {
 
 module.exports = v4;
 
-},{"./lib/bytesToUuid":98,"./lib/rng":99}],102:[function(require,module,exports){
+},{"./lib/bytesToUuid":100,"./lib/rng":101}],104:[function(require,module,exports){
 
 /**
  * dependencies.
@@ -12201,7 +12422,7 @@ function all(){
   return ret;
 }
 
-},{"each":52,"unserialize":103}],103:[function(require,module,exports){
+},{"each":54,"unserialize":105}],105:[function(require,module,exports){
 
 /**
  * Unserialize the given "stringified" javascript.
@@ -12218,7 +12439,7 @@ module.exports = function(val){
   }
 };
 
-},{}],104:[function(require,module,exports){
+},{}],106:[function(require,module,exports){
 module.exports={
   "name": "@segment/analytics.js",
   "author": "Segment <friends@segment.com>",
