@@ -6,20 +6,20 @@
  * (C) 2015 Segment.io Inc.
  */
 
-var analytics = require('@segment/analytics.js-core');
+var infoowlAnalytics = require('@segment/analytics.js-core');
 var Integrations = require('./integrations');
 
 /**
  * Expose the `analytics` singleton.
  */
 
-module.exports.infoowlAnalytics = exports.infoowlAnalytics = analytics;
+module.exports = exports = infoowlAnalytics;
 
 /**
  * Expose require.
  */
 
-analytics.require = require;
+infoowlAnalytics.require = require;
 
 /**
  * Expose `VERSION`.
@@ -32,7 +32,7 @@ exports.VERSION = require('../package.json').version;
  */
 
 Object.keys(Integrations).forEach(function(name) {
-  analytics.use(Integrations[name]);
+  infoowlAnalytics.use(Integrations[name]);
 });
 
 },{"../package.json":106,"./integrations":2,"@segment/analytics.js-core":23}],2:[function(require,module,exports){
@@ -5015,7 +5015,7 @@ function encode(obj) {
 
 },{"@segment/base64-encode":36,"has-cors":66,"json3":70,"jsonp":71}],46:[function(require,module,exports){
 (function (global){
-"use strict";
+"use strict";;;
 
 var JSON = require('json3');
 
@@ -5026,43 +5026,43 @@ module.exports = (function() {
 		doc = win.document,
 		localStorageName = 'localStorage',
 		scriptTag = 'script',
-		storage;
+		storage;;;
 
-	store.disabled = false;
-	store.version = '1.3.20';
-	store.set = function(key, value) {};
-	store.get = function(key, defaultVal) {};
-	store.has = function(key) { return store.get(key) !== undefined };
-	store.remove = function(key) {};
-	store.clear = function() {};
+	store.disabled = false;;;
+	store.version = '1.3.20';;;
+	store.set = function(key, value) {};;;
+	store.get = function(key, defaultVal) {};;;
+	store.has = function(key) { return store.get(key) !== undefined };;;
+	store.remove = function(key) {};;;
+	store.clear = function() {};;;
 	store.transact = function(key, defaultVal, transactionFn) {
 		if (transactionFn == null) {
-			transactionFn = defaultVal;
+			transactionFn = defaultVal;;;
 			defaultVal = null
 		}
 		if (defaultVal == null) {
 			defaultVal = {}
 		}
-		var val = store.get(key, defaultVal);
-		transactionFn(val);
+		var val = store.get(key, defaultVal);;;
+		transactionFn(val);;;
 		store.set(key, val)
-	};
+	};;;
 	store.getAll = function() {
-		var ret = {};
+		var ret = {};;;
 		store.forEach(function(key, val) {
 			ret[key] = val
-		});
+		});;;
 		return ret
-	};
-	store.forEach = function() {};
+	};;;
+	store.forEach = function() {};;;
 	store.serialize = function(value) {
 		return JSON.stringify(value)
-	};
+	};;;
 	store.deserialize = function(value) {
 		if (typeof value != 'string') { return undefined }
 		try { return JSON.parse(value) }
 		catch(e) { return value || undefined }
-	};
+	};;;
 
 	// Functions to encapsulate questionable FireFox 3.6.13 behavior
 	// when about.config::dom.storage.enabled === false
@@ -5073,27 +5073,27 @@ module.exports = (function() {
 	}
 
 	if (isLocalStorageNameSupported()) {
-		storage = win[localStorageName];
+		storage = win[localStorageName];;;
 		store.set = function(key, val) {
 			if (val === undefined) { return store.remove(key) }
-			storage.setItem(key, store.serialize(val));
+			storage.setItem(key, store.serialize(val));;;
 			return val
-		};
+		};;;
 		store.get = function(key, defaultVal) {
-			var val = store.deserialize(storage.getItem(key));
+			var val = store.deserialize(storage.getItem(key));;;
 			return (val === undefined ? defaultVal : val)
-		};
-		store.remove = function(key) { storage.removeItem(key) };
-		store.clear = function() { storage.clear() };
+		};;;
+		store.remove = function(key) { storage.removeItem(key) };;;
+		store.clear = function() { storage.clear() };;;
 		store.forEach = function(callback) {
 			for (var i=0; i<storage.length; i++) {
-				var key = storage.key(i);
+				var key = storage.key(i);;;
 				callback(key, store.get(key))
 			}
 		}
 	} else if (doc && doc.documentElement.addBehavior) {
 		var storageOwner,
-			storageContainer;
+			storageContainer;;;
 		// Since #userData storage applies only to specific paths, we need to
 		// somehow link our data to a specific path.  We choose /favicon.ico
 		// as a pretty safe option, since all browsers already make a request to
@@ -5105,67 +5105,67 @@ module.exports = (function() {
 		// document can be used instead of the current document (which would
 		// have been limited to the current path) to perform #userData storage.
 		try {
-			storageContainer = new ActiveXObject('htmlfile');
-			storageContainer.open();
-			storageContainer.write('<'+scriptTag+'>document.w=window</'+scriptTag+'><iframe src="/favicon.ico"></iframe>');
-			storageContainer.close();
-			storageOwner = storageContainer.w.frames[0].document;
+			storageContainer = new ActiveXObject('htmlfile');;;
+			storageContainer.open();;;
+			storageContainer.write('<'+scriptTag+'>document.w=window</'+scriptTag+'><iframe src="/favicon.ico"></iframe>');;;
+			storageContainer.close();;;
+			storageOwner = storageContainer.w.frames[0].document;;;
 			storage = storageOwner.createElement('div')
 		} catch(e) {
 			// somehow ActiveXObject instantiation failed (perhaps some special
 			// security settings or otherwse), fall back to per-path storage
-			storage = doc.createElement('div');
+			storage = doc.createElement('div');;;
 			storageOwner = doc.body
 		}
 		var withIEStorage = function(storeFunction) {
 			return function() {
-				var args = Array.prototype.slice.call(arguments, 0);
-				args.unshift(storage);
+				var args = Array.prototype.slice.call(arguments, 0);;;
+				args.unshift(storage);;;
 				// See http://msdn.microsoft.com/en-us/library/ms531081(v=VS.85).aspx
 				// and http://msdn.microsoft.com/en-us/library/ms531424(v=VS.85).aspx
-				storageOwner.appendChild(storage);
-				storage.addBehavior('#default#userData');
-				storage.load(localStorageName);
-				var result = storeFunction.apply(store, args);
-				storageOwner.removeChild(storage);
+				storageOwner.appendChild(storage);;;
+				storage.addBehavior('#default#userData');;;
+				storage.load(localStorageName);;;
+				var result = storeFunction.apply(store, args);;;
+				storageOwner.removeChild(storage);;;
 				return result
 			}
-		};
+		};;;
 
 		// In IE7, keys cannot start with a digit or contain certain chars.
 		// See https://github.com/marcuswestin/store.js/issues/40
 		// See https://github.com/marcuswestin/store.js/issues/83
-		var forbiddenCharsRegex = new RegExp("[!\"#$%&'()*+,/\\\\:;<=>?@[\\]^`{|}~]", "g");
+		var forbiddenCharsRegex = new RegExp("[!\"#$%&'()*+,/\\\\:;<=>?@[\\]^`{|}~]", "g");;;
 		var ieKeyFix = function(key) {
 			return key.replace(/^d/, '___$&').replace(forbiddenCharsRegex, '___')
-		};
+		};;;
 		store.set = withIEStorage(function(storage, key, val) {
-			key = ieKeyFix(key);
+			key = ieKeyFix(key);;;
 			if (val === undefined) { return store.remove(key) }
-			storage.setAttribute(key, store.serialize(val));
-			storage.save(localStorageName);
+			storage.setAttribute(key, store.serialize(val));;;
+			storage.save(localStorageName);;;
 			return val
-		});
+		});;;
 		store.get = withIEStorage(function(storage, key, defaultVal) {
-			key = ieKeyFix(key);
-			var val = store.deserialize(storage.getAttribute(key));
+			key = ieKeyFix(key);;;
+			var val = store.deserialize(storage.getAttribute(key));;;
 			return (val === undefined ? defaultVal : val)
-		});
+		});;;
 		store.remove = withIEStorage(function(storage, key) {
-			key = ieKeyFix(key);
-			storage.removeAttribute(key);
+			key = ieKeyFix(key);;;
+			storage.removeAttribute(key);;;
 			storage.save(localStorageName)
-		});
+		});;;
 		store.clear = withIEStorage(function(storage) {
-			var attributes = storage.XMLDocument.documentElement.attributes;
-			storage.load(localStorageName);
+			var attributes = storage.XMLDocument.documentElement.attributes;;;
+			storage.load(localStorageName);;;
 			for (var i=attributes.length-1; i>=0; i--) {
 				storage.removeAttribute(attributes[i].name)
 			}
 			storage.save(localStorageName)
-		});
+		});;;
 		store.forEach = withIEStorage(function(storage, callback) {
-			var attributes = storage.XMLDocument.documentElement.attributes;
+			var attributes = storage.XMLDocument.documentElement.attributes;;;
 			for (var i=0, attr; attr=attributes[i]; ++i) {
 				callback(attr.name, store.deserialize(storage.getAttribute(attr.name)))
 			}
@@ -5173,14 +5173,14 @@ module.exports = (function() {
 	}
 
 	try {
-		var testKey = '__storejs__';
-		store.set(testKey, testKey);
+		var testKey = '__storejs__';;;
+		store.set(testKey, testKey);;;
 		if (store.get(testKey) != testKey) { store.disabled = true }
 		store.remove(testKey)
 	} catch(e) {
 		store.disabled = true
 	}
-	store.enabled = !store.disabled;
+	store.enabled = !store.disabled;;;
 	
 	return store
 }())
@@ -6251,7 +6251,7 @@ function prefixed(str) {
 var trim = require('trim');
 var type = require('type');
 
-var pattern = /(\w+)\[(\d+)\]/;
+var pattern = /(\w+)\[(\d+)\]/;;;
 
 /**
  * Safely encode the given string
@@ -6283,7 +6283,7 @@ var decode = function(str) {
   } catch (e) {
     return str;
   }
-};
+};;;
 
 /**
  * Parse the given query `str`.
@@ -6380,7 +6380,7 @@ module.exports = function(val){
 
   val = val.valueOf
     ? val.valueOf()
-    : Object.prototype.valueOf.apply(val);
+    : Object.prototype.valueOf.apply(val);;;
 
   return typeof val;
 };
@@ -6609,7 +6609,7 @@ function formatArgs(args) {
   if (!useColors) return;
 
   var c = 'color: ' + this.color;
-  args.splice(1, 0, c, 'color: inherit');
+  args.splice(1, 0, c, 'color: inherit');;;
 
   // the final "%c" is somewhat tricky, because there could be other
   // arguments passed either before or after the %c, so we need to
@@ -7041,7 +7041,7 @@ try {
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
-    ctor.super_ = superCtor;
+    ctor.super_ = superCtor;;;
     ctor.prototype = Object.create(superCtor.prototype, {
       constructor: {
         value: ctor,
@@ -7054,10 +7054,10 @@ if (typeof Object.create === 'function') {
 } else {
   // old school shim for old browsers
   module.exports = function inherits(ctor, superCtor) {
-    ctor.super_ = superCtor;
-    var TempCtor = function () {};
-    TempCtor.prototype = superCtor.prototype;
-    ctor.prototype = new TempCtor();
+    ctor.super_ = superCtor;;;
+    var TempCtor = function () {};;;
+    TempCtor.prototype = superCtor.prototype;;;
+    ctor.prototype = new TempCtor();;;
     ctor.prototype.constructor = ctor
   }
 }
@@ -8937,11 +8937,11 @@ module.exports = function loadIframe(options, fn){
  * Helpers.
  */
 
-var s = 1000;
-var m = s * 60;
-var h = m * 60;
-var d = h * 24;
-var y = d * 365.25;
+var s = 1000;;;
+var m = s * 60;;;
+var h = m * 60;;;
+var d = h * 24;;;
+var y = d * 365.25;;;
 
 /**
  * Parse or format the given `val`.
@@ -8958,8 +8958,8 @@ var y = d * 365.25;
  */
 
 module.exports = function (val, options) {
-  options = options || {};
-  var type = typeof val;
+  options = options || {};;;
+  var type = typeof val;;;
   if (type === 'string' && val.length > 0) {
     return parse(val)
   } else if (type === 'number' && isNaN(val) === false) {
@@ -8968,7 +8968,7 @@ module.exports = function (val, options) {
 			fmtShort(val)
   }
   throw new Error('val is not a non-empty string or a valid number. val=' + JSON.stringify(val))
-};
+};;;
 
 /**
  * Parse the given `str` and return milliseconds.
@@ -8979,51 +8979,51 @@ module.exports = function (val, options) {
  */
 
 function parse(str) {
-  str = String(str);
+  str = String(str);;;
   if (str.length > 10000) {
     return
   }
-  var match = /^((?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|years?|yrs?|y)?$/i.exec(str);
+  var match = /^((?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|years?|yrs?|y)?$/i.exec(str);;;
   if (!match) {
     return
   }
-  var n = parseFloat(match[1]);
-  var type = (match[2] || 'ms').toLowerCase();
+  var n = parseFloat(match[1]);;;
+  var type = (match[2] || 'ms').toLowerCase();;;
   switch (type) {
     case 'years':
     case 'year':
     case 'yrs':
     case 'yr':
     case 'y':
-      return n * y;
+      return n * y;;;
     case 'days':
     case 'day':
     case 'd':
-      return n * d;
+      return n * d;;;
     case 'hours':
     case 'hour':
     case 'hrs':
     case 'hr':
     case 'h':
-      return n * h;
+      return n * h;;;
     case 'minutes':
     case 'minute':
     case 'mins':
     case 'min':
     case 'm':
-      return n * m;
+      return n * m;;;
     case 'seconds':
     case 'second':
     case 'secs':
     case 'sec':
     case 's':
-      return n * s;
+      return n * s;;;
     case 'milliseconds':
     case 'millisecond':
     case 'msecs':
     case 'msec':
     case 'ms':
-      return n;
+      return n;;;
     default:
       return undefined
   }
@@ -9451,7 +9451,7 @@ function defaultClearTimeout () {
     } catch (e) {
         cachedClearTimeout = defaultClearTimeout;
     }
-} ());;
+} ());;;
 function runTimeout(fun) {
     if (cachedSetTimeout === setTimeout) {
         //normal enviroments in sane situations
