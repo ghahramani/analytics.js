@@ -36,7 +36,7 @@ distclean: clean
 
 # Build analytics.js.
 analytics.js: install $(SRC) package.json
-	@$(BROWSERIFY) lib/index.js --standalone infoowlAnalytics > analytics.js
+	@$(BROWSERIFY) lib/index.js --insert-globals true --standalone infoowlAnalytics > analytics.js
 
 # Build minified analytics.js.
 analytics.min.js: analytics.js
